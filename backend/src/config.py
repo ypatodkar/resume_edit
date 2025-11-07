@@ -23,7 +23,7 @@ RAW_RESPONSE_FILE = os.path.join(BASE_DIR, "output", "raw_response.txt")
 # MODEL CONFIG
 # =========================================================
 MODEL_NAME = "gemini-2.5-pro"
-GEMINI_API_KEY = "REDACTED"  # ← replace or set via env var
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")  # Get from environment variable
 
 # =========================================================
 # GEMINI INITIALIZATION
