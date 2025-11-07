@@ -7,4 +7,5 @@ flask
 flask-cors
 werkzeug
 requests
+mangum
 

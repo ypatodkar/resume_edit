@@ -1,0 +1,20 @@
+{
+  "name": "resume-optimizer-api",
+  "version": "1.0.0",
+  "description": "Resume Optimizer API for AWS Lambda",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test-local.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
+

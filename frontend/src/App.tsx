@@ -9,7 +9,8 @@ import ErrorBox from './components/ErrorBox';
 import ResultDisplay from './components/ResultDisplay';
 import NavigationButton from './components/NavigationButton';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+// Normalize API URL - remove trailing slash to prevent double slashes
+const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/+$/, '');
 
 function App() {
   const [resumeText, setResumeText] = useState<string>('');
