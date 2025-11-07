@@ -41,6 +41,14 @@ frontend/node_modules
 .env
 .env.local
 
+# Lambda deployment packages
+lambda_deployment.zip
+backend-nodejs/lambda_deployment.zip
+backend/lambda_deployment.zip
+lambda_package/
+backend-nodejs/lambda_package/
+backend/lambda_package/
+
 # AWS
 .aws-sam/
 samconfig.toml
