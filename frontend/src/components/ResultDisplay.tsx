@@ -54,7 +54,7 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
         )}
 
         {result.projects && result.projects.length > 0 && (
-          <ProjectsSection projects={result.projects} />
+          <ProjectsSection projects={result.projects} onCopy={handleCopy} />
         )}
 
         {result.overall_notes && (

@@ -356,6 +356,10 @@
     font-weight: 600;
     display: inline-flex;
     align-items: center;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
   }
   
   .copy-button:hover {
@@ -366,6 +370,42 @@
   .copy-button .icon {
     margin-right: 6px;
     vertical-align: -1px;
+  }
+
+  .copy-button-small {
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: #666;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .copy-button-small:hover {
+    background: #555;
+    transform: translateY(-1px);
+  }
+  
+  .copy-button-small .icon {
+    margin-right: 4px;
+    font-size: 0.8rem;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .section-header h3 {
+    margin: 0;
   }
   
   

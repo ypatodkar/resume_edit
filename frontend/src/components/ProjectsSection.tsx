@@ -1,20 +1,57 @@
-import { FaFolderOpen } from 'react-icons/fa';
+import { FaFolderOpen, FaCopy } from 'react-icons/fa';
 import { Project } from '../types';
 
 interface ProjectsSectionProps {
   projects: Project[];
+  onCopy: (text: string) => void;
 }
 
-export default function ProjectsSection({ projects }: ProjectsSectionProps) {
+export default function ProjectsSection({ projects, onCopy }: ProjectsSectionProps) {
   const wordCount = (text: string | undefined): number => {
     if (!text) return 0;
     return text.split(/\s+/).filter(Boolean).length;
+  };
+
+  const formatProjectForCopy = (project: Project): string => {
+    let text = `${project.project_name}\n`;
+    
+    if (project.status === 'modified' && project.changes) {
+      if (project.changes.old_point) {
+        text += `Change this point: "${project.changes.old_point}"\n`;
+      }
+      if (project.changes.new_point) {
+        text += `To: "${project.changes.new_point}"\n`;
+      }
+      if (project.changes.new_technologies) {
+        text += `Change Technologies to: ${project.changes.new_technologies}\n`;
+      }
+    } else if (project.status === 'no_changes') {
+      text += 'No changes needed.\n';
+    }
+    
+    return text.trim();
+  };
+
+  const getAllProjectsText = (): string => {
+    return projects
+      .map((project, idx) => {
+        let text = `${idx + 1}. ${formatProjectForCopy(project)}`;
+        return text;
+      })
+      .join('\n\n');
   };
 
   return (
     <section className="result-section">
       <div className="section-header">
         <h3><FaFolderOpen className="icon" /> Projects ({projects.length} projects)</h3>
+        <button
+          className="copy-button"
+          onClick={() => onCopy(getAllProjectsText())}
+          title="Copy all projects"
+        >
+          <FaCopy className="icon" /> Copy All
+        </button>
       </div>
       <div className="projects-list">
         {projects.map((project, idx) => (
@@ -51,6 +88,13 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                     <p className="new-text">{project.changes.new_technologies}</p>
                   </div>
                 )}
+                <button
+                  className="copy-button-small"
+                  onClick={() => onCopy(formatProjectForCopy(project))}
+                  title="Copy this project"
+                >
+                  <FaCopy className="icon" /> Copy
+                </button>
               </div>
             )}
           </div>
