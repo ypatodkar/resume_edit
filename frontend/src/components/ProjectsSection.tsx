@@ -20,7 +20,7 @@ export default function ProjectsSection({ projects, onCopy }: ProjectsSectionPro
         text += `Change this point: "${project.changes.old_point}"\n`;
       }
       if (project.changes.new_point) {
-        text += `To: "${project.changes.new_point}"\n`;
+        text += `To: ${project.changes.new_point}\n`;
       }
       if (project.changes.new_technologies) {
         text += `Change Technologies to: ${project.changes.new_technologies}\n`;
@@ -76,7 +76,16 @@ export default function ProjectsSection({ projects, onCopy }: ProjectsSectionPro
                 {project.changes.new_point && (
                   <div className="change-item">
                     <strong>To:</strong>
-                    <p className="new-text">"{project.changes.new_point}"</p>
+                    <div className="new-text-container">
+                      <p className="new-text">{project.changes.new_point}</p>
+                      <button
+                        className="copy-button-new-text"
+                        onClick={() => onCopy(project.changes.new_point || '')}
+                        title="Copy this text"
+                      >
+                        <FaCopy className="icon" />
+                      </button>
+                    </div>
                     <div className="word-count-small">
                       {wordCount(project.changes.new_point)} words
                     </div>
@@ -85,7 +94,16 @@ export default function ProjectsSection({ projects, onCopy }: ProjectsSectionPro
                 {project.changes.old_technologies && project.changes.new_technologies && (
                   <div className="change-item">
                     <strong>Change Technologies to:</strong>
-                    <p className="new-text">{project.changes.new_technologies}</p>
+                    <div className="new-text-container">
+                      <p className="new-text">{project.changes.new_technologies}</p>
+                      <button
+                        className="copy-button-new-text"
+                        onClick={() => onCopy(project.changes.new_technologies || '')}
+                        title="Copy this text"
+                      >
+                        <FaCopy className="icon" />
+                      </button>
+                    </div>
                   </div>
                 )}
                 <button
