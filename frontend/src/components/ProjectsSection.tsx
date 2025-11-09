@@ -80,7 +80,7 @@ export default function ProjectsSection({ projects, onCopy }: ProjectsSectionPro
                       <p className="new-text">{project.changes.new_point}</p>
                       <button
                         className="copy-button-new-text"
-                        onClick={() => onCopy(project.changes.new_point || '')}
+                        onClick={() => onCopy(project.changes?.new_point || '')}
                         title="Copy this text"
                       >
                         <FaCopy className="icon" />
@@ -98,7 +98,7 @@ export default function ProjectsSection({ projects, onCopy }: ProjectsSectionPro
                       <p className="new-text">{project.changes.new_technologies}</p>
                       <button
                         className="copy-button-new-text"
-                        onClick={() => onCopy(project.changes.new_technologies || '')}
+                        onClick={() => onCopy(project.changes?.new_technologies || '')}
                         title="Copy this text"
                       >
                         <FaCopy className="icon" />
