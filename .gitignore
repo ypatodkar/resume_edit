@@ -53,3 +53,7 @@ backend/lambda_package/
 .aws-sam/
 samconfig.toml
 
+# Backend Node.js
+backend-nodejs/node_modules/
+backend-nodejs/*.md
+backend-nodejs/ziqOZ1I9
